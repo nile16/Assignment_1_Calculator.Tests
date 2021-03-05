@@ -7,23 +7,33 @@ namespace Assignment_1_Calculator.Tests
     public class CalculatorTests
     {
         [Fact]
-        public void Test_Addition()
+        public void Test_Addition_Doubles()
         {
             Assert.Equal("The sum of 2 and 3 is: 5", Calculator.Addition(2, 3));
             Assert.Equal("The sum of 2 and -3 is: -1", Calculator.Addition(2, -3));
-            Assert.Equal("The sum of 2, 3, 4 is: 9", Calculator.Addition(new double[] {2, 3, 4} ));
-            Assert.Equal("The array must contain at least two elements.", Calculator.Addition(new double[] {2} ));
-            Assert.Equal("The array must contain at least two elements.", Calculator.Addition(new double[] {} ));
         }
 
         [Fact]
-        public void Test_Subtraction()
+        public void Test_Addition_Array()
+        {
+            Assert.Equal("The sum of 2, 3, 4 is: 9", Calculator.Addition(new double[] { 2, 3, 4 }));
+            Assert.Equal("The array must contain at least two elements.", Calculator.Addition(new double[] { 2 }));
+            Assert.Equal("The array must contain at least two elements.", Calculator.Addition(new double[] { }));
+        }
+
+        [Fact]
+        public void Test_Subtraction_Doubles()
         {
             Assert.Equal("The difference of 5 and 3 is: 2", Calculator.Subtraction(5, 3));
             Assert.Equal("The difference of 3 and 5 is: -2", Calculator.Subtraction(3, 5));
-            Assert.Equal("The difference of 2, 2, 7, 9, 5 is: -21", Calculator.Subtraction(new double[] {2, 2, 7, 9, 5} ));
-            Assert.Equal("The array must contain at least two elements.", Calculator.Subtraction(new double[] {2} ));
-            Assert.Equal("The array must contain at least two elements.", Calculator.Subtraction(new double[] {} ));
+        }
+
+        [Fact]
+        public void Test_Subtraction_Array()
+        {
+            Assert.Equal("The difference of 2, 2, 7, 9, 5 is: -21", Calculator.Subtraction(new double[] { 2, 2, 7, 9, 5 }));
+            Assert.Equal("The array must contain at least two elements.", Calculator.Subtraction(new double[] { 2 }));
+            Assert.Equal("The array must contain at least two elements.", Calculator.Subtraction(new double[] { }));
         }
 
         [Fact]
