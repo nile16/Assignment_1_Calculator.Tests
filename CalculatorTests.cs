@@ -51,20 +51,22 @@ namespace Assignment_1_Calculator.Tests
             Assert.Equal("The product of -0,5 and 4 is: -2", Calculator.Multiplication(-0.5, 4));
         }
 
-        [Fact]
-        public void Test_Exponentiation()
+        [Theory]
+        [InlineData(2, 3, "The exponentiation of 2 and 3 is: 8")]
+        [InlineData(-2, 2, "The exponentiation of -2 and 2 is: 4")]
+        [InlineData(-2, 3, "The exponentiation of -2 and 3 is: -8")]
+        [InlineData(9, 0.5, "The exponentiation of 9 and 0,5 is: 3")]
+        public void Test_Exponentiation(double bas, double exponent, string expected)
         {
-            Assert.Equal("The exponentiation of 2 and 3 is: 8", Calculator.Exponentiation(2, 3));
-            Assert.Equal("The exponentiation of -2 and 2 is: 4", Calculator.Exponentiation(-2, 2));
-            Assert.Equal("The exponentiation of -2 and 3 is: -8", Calculator.Exponentiation(-2, 3));
-            Assert.Equal("The exponentiation of 9 and 0,5 is: 3", Calculator.Exponentiation(9, 0.5));
+            Assert.Equal(expected, Calculator.Exponentiation(bas, exponent));
         }
 
-        [Fact]
-        public void Test_Radical()
+        [Theory]
+        [InlineData(27, 3, "The 3 root of 27 is: 3")]
+        [InlineData(9, 0.5, "The 0,5 root of 9 is: 81")]
+        public void Test_Radical(double radicand, double index, string result)
         {
-            Assert.Equal("The 3 root of 27 is: 3", Calculator.Radical(27, 3));
-            Assert.Equal("The 0,5 root of 9 is: 81", Calculator.Radical(9, 0.5));
+            Assert.Equal(result, Calculator.Radical(radicand, index)); 
         }
     }
 }
